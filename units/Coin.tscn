@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://scripts/Coin.gd" type="Script" id=1]
+[ext_resource path="res://sprites/coin/world/tile000.png" type="Texture" id=2]
+[ext_resource path="res://sprites/coin/world/tile001.png" type="Texture" id=3]
+[ext_resource path="res://sprites/coin/world/tile002.png" type="Texture" id=4]
+[ext_resource path="res://sprites/coin/world/tile003.png" type="Texture" id=5]
+[ext_resource path="res://sprites/coin/world/tile004.png" type="Texture" id=6]
+[ext_resource path="res://sprites/coin/world/tile005.png" type="Texture" id=7]
+[ext_resource path="res://music/fx/coin_get.ogg" type="AudioStream" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "spin",
+"speed": 8.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[node name="Coin" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "spin"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]
