@@ -1,32 +1,121 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=38 format=2]
 
-[ext_resource path="res://scenes/Blackjack.gd" type="Script" id=1]
-[ext_resource path="res://sprites/coin/betting/tile000.png" type="Texture" id=2]
-[ext_resource path="res://sprites/coin/betting/tile001.png" type="Texture" id=3]
-[ext_resource path="res://sprites/coin/betting/tile002.png" type="Texture" id=4]
-[ext_resource path="res://sprites/coin/betting/tile003.png" type="Texture" id=5]
-[ext_resource path="res://sprites/coin/betting/tile004.png" type="Texture" id=6]
-[ext_resource path="res://sprites/coin/betting/tile005.png" type="Texture" id=7]
-[ext_resource path="res://sprites/coin/betting/tile007.png" type="Texture" id=8]
-[ext_resource path="res://sprites/coin/betting/tile006.png" type="Texture" id=9]
-[ext_resource path="res://sprites/fonts/PressStart.tres" type="DynamicFont" id=10]
+[ext_resource path="res://scripts/Blackjack.gd" type="Script" id=1]
+[ext_resource path="res://sprites/coin/betting/tile001 (1).png" type="Texture" id=2]
+[ext_resource path="res://sprites/coin/betting/tile002 (1).png" type="Texture" id=3]
+[ext_resource path="res://sprites/coin/betting/tile003.png" type="Texture" id=4]
+[ext_resource path="res://sprites/coin/betting/tile004.png" type="Texture" id=5]
+[ext_resource path="res://sprites/coin/betting/tile005.png" type="Texture" id=6]
+[ext_resource path="res://sprites/coin/betting/tile000.png" type="Texture" id=7]
+[ext_resource path="res://sprites/coin/betting/tile001.png" type="Texture" id=8]
+[ext_resource path="res://sprites/coin/betting/tile002.png" type="Texture" id=9]
+[ext_resource path="res://sprites/coin/betting/tile001 (2).png" type="Texture" id=10]
+[ext_resource path="res://sprites/coin/betting/tile002 (2).png" type="Texture" id=11]
+[ext_resource path="res://sprites/coin/betting/tile004 (1).png" type="Texture" id=12]
+[ext_resource path="res://sprites/coin/betting/tile005 (1).png" type="Texture" id=13]
+[ext_resource path="res://sprites/coin/betting/tile006.png" type="Texture" id=14]
+[ext_resource path="res://sprites/coin/betting/tile004 (2).png" type="Texture" id=15]
+[ext_resource path="res://sprites/coin/betting/tile005 (2).png" type="Texture" id=16]
+[ext_resource path="res://sprites/coin/betting/tile007.png" type="Texture" id=17]
+[ext_resource path="res://sprites/fonts/PressStart.tres" type="DynamicFont" id=18]
+[ext_resource path="res://music/tunes/Coins.ogg" type="AudioStream" id=19]
+[ext_resource path="res://music/fx/coin_get.ogg" type="AudioStream" id=20]
+[ext_resource path="res://music/fx/Fall.ogg" type="AudioStream" id=21]
+[ext_resource path="res://sprites/blackjack/exit_empty.png" type="Texture" id=22]
+[ext_resource path="res://sprites/blackjack/exit_disabled.png" type="Texture" id=23]
+[ext_resource path="res://sprites/blackjack/exit.png" type="Texture" id=24]
+[ext_resource path="res://sprites/blackjack/hit_empty.png" type="Texture" id=25]
+[ext_resource path="res://sprites/blackjack/hit.png" type="Texture" id=26]
+[ext_resource path="res://sprites/blackjack/stay_empty.png" type="Texture" id=27]
+[ext_resource path="res://sprites/blackjack/stay.png" type="Texture" id=28]
+[ext_resource path="res://sprites/blackjack/double_empty.png" type="Texture" id=29]
+[ext_resource path="res://sprites/blackjack/double.png" type="Texture" id=30]
+[ext_resource path="res://sprites/ui/x-note.png" type="Texture" id=31]
+[ext_resource path="res://sprites/ui/coin.png" type="Texture" id=32]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "reset1",
+"speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "spinning",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
-"name": "two",
+"name": "reset2",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": false,
 "name": "one",
 "speed": 8.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": false,
+"name": "two",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "disabled",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "empty",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "selected",
+"speed": 5.0
 } ]
 
 [node name="Blackjack" type="Node2D"]
@@ -36,41 +125,185 @@ __meta__ = {
 "_edit_vertical_guides_": [ 320.0 ]
 }
 
-[node name="Coin" type="AnimatedSprite" parent="."]
-position = Vector2( 320, 320 )
+[node name="CoinPlayer" type="AnimatedSprite" parent="."]
+position = Vector2( 160, 416 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 1 )
+animation = "spinning"
+frame = 1
+playing = true
+
+[node name="CoinComp" type="AnimatedSprite" parent="."]
+position = Vector2( 480, 416 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "spinning"
 playing = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-margin_left = 256.0
-margin_top = 112.0
-margin_right = 384.0
-margin_bottom = 129.0
+margin_left = 119.0
+margin_right = 522.0
+margin_bottom = 32.0
 size_flags_horizontal = 3
-custom_fonts/mono_font = ExtResource( 10 )
-custom_fonts/normal_font = ExtResource( 10 )
-text = "Push It?"
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Pieces of Eight BlackJack"
 
-[node name="Hit" type="RichTextLabel" parent="."]
-margin_left = 176.0
-margin_top = 512.0
-margin_right = 468.0
-margin_bottom = 530.0
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 247.0
+margin_top = 30.0
+margin_right = 394.0
+margin_bottom = 57.0
 size_flags_horizontal = 3
-custom_fonts/mono_font = ExtResource( 10 )
-custom_fonts/normal_font = ExtResource( 10 )
-text = "Press Right to Bet"
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Target: 8"
 
-[node name="Stay" type="RichTextLabel" parent="."]
-margin_left = 176.0
-margin_top = 464.0
-margin_right = 467.0
-margin_bottom = 483.0
+[node name="Player" type="RichTextLabel" parent="."]
+margin_left = 80.0
+margin_top = 240.0
+margin_right = 193.0
+margin_bottom = 272.0
 size_flags_horizontal = 3
-custom_fonts/mono_font = ExtResource( 10 )
-custom_fonts/normal_font = ExtResource( 10 )
-text = "Press Left to Stay"
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Player:"
 
-[connection signal="animation_finished" from="Coin" to="." method="_on_AnimatedSprite_animation_finished"]
+[node name="PTotalLabel" type="RichTextLabel" parent="."]
+margin_left = 208.0
+margin_top = 240.0
+margin_right = 259.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "0"
+
+[node name="Computer" type="RichTextLabel" parent="."]
+margin_left = 394.0
+margin_top = 240.0
+margin_right = 544.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Computer:"
+
+[node name="CTotalLabel" type="RichTextLabel" parent="."]
+margin_left = 560.0
+margin_top = 240.0
+margin_right = 605.0
+margin_bottom = 272.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "0"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 19 )
+volume_db = -20.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+volume_db = -20.0
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
+volume_db = -20.0
+
+[node name="Exit" type="AnimatedSprite" parent="."]
+position = Vector2( 464, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 2 )
+animation = "empty"
+
+[node name="Hit" type="AnimatedSprite" parent="."]
+position = Vector2( 176, 544 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 3 )
+animation = "selected"
+
+[node name="Stay" type="AnimatedSprite" parent="."]
+position = Vector2( 464, 544 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 4 )
+animation = "empty"
+
+[node name="Double" type="AnimatedSprite" parent="."]
+position = Vector2( 176, 640 )
+scale = Vector2( 4, 4 )
+frames = SubResource( 5 )
+animation = "empty"
+
+[node name="OnesTotal" type="RichTextLabel" parent="."]
+margin_left = 560.0
+margin_top = 118.0
+margin_right = 614.0
+margin_bottom = 141.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "0"
+
+[node name="OnesLabel" type="RichTextLabel" parent="."]
+margin_left = 382.0
+margin_top = 118.0
+margin_right = 542.0
+margin_bottom = 141.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Ones Left:"
+
+[node name="TwosTotal" type="RichTextLabel" parent="."]
+margin_left = 560.0
+margin_top = 160.0
+margin_right = 614.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "0"
+
+[node name="TwosLabel" type="RichTextLabel" parent="."]
+margin_left = 382.0
+margin_top = 160.0
+margin_right = 543.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Twos Left:"
+
+[node name="PlayerCoins" type="Node2D" parent="."]
+
+[node name="x-note" type="Sprite" parent="PlayerCoins"]
+position = Vector2( 132, 151 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 31 )
+
+[node name="coins" type="Sprite" parent="PlayerCoins"]
+position = Vector2( 96, 150 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 32 )
+
+[node name="CoinTotal" type="RichTextLabel" parent="PlayerCoins"]
+margin_left = 146.0
+margin_top = 139.0
+margin_right = 200.0
+margin_bottom = 162.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "0"
+
+[node name="PlayerTimer" type="Timer" parent="."]
+
+[node name="CompTimer" type="Timer" parent="."]
+
+[connection signal="animation_finished" from="CoinPlayer" to="." method="_on_AnimatedSprite_animation_finished"]
+[connection signal="animation_finished" from="CoinComp" to="." method="_on_CoinComp_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_AudioStreamPlayer2_finished"]
+[connection signal="finished" from="AudioStreamPlayer3" to="." method="_on_AudioStreamPlayer3_finished"]
+[connection signal="timeout" from="PlayerTimer" to="." method="_on_PlayerTimer_timeout"]
+[connection signal="timeout" from="CompTimer" to="." method="_on_CompTimer_timeout"]

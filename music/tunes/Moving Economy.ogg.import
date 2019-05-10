@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Moving Economy.ogg-ddbc34584f0f9f58083c75d19ccdb6e0.oggstr"
+
+[deps]
+
+source_file="res://music/tunes/Moving Economy.ogg"
+dest_files=[ "res://.import/Moving Economy.ogg-ddbc34584f0f9f58083c75d19ccdb6e0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

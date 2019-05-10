@@ -3,5 +3,7 @@
 [ext_resource path="res://sprites/fonts/PressStart2P.ttf" type="DynamicFontData" id=1]
 
 [resource]
+use_filter = true
+extra_spacing_top = 5
 font_data = ExtResource( 1 )
 

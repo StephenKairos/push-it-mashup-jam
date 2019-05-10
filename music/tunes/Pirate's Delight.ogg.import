@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pirate's Delight.ogg-61d939a556248ab268434818e1a11854.oggstr"
+
+[deps]
+
+source_file="res://music/tunes/Pirate's Delight.ogg"
+dest_files=[ "res://.import/Pirate's Delight.ogg-61d939a556248ab268434818e1a11854.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

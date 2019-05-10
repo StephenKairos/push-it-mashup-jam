@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Shift Happens.ogg-b33d909b029f51ffa03bf3be258223db.oggstr"
+
+[deps]
+
+source_file="res://music/tunes/Shift Happens.ogg"
+dest_files=[ "res://.import/Shift Happens.ogg-b33d909b029f51ffa03bf3be258223db.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -6,11 +6,18 @@ extends KinematicBody2D
 # Member variables
 const MOTION_SPEED = 200 # Pixels/second
 
-var speed = 200
+var speed = 300
 
 onready var global = get_node("/root/Global")
 onready var slime = get_node("Slime")
+onready var hurtsound = get_node("Hurt")
 
+var platform = Vector2(0, 0)
+var platformspeed = 0
+var platform_immune = 0
+var reset = Vector2(2112, 4120)
+var ishurt = false
+var hurttimer = 0
 
 func _ready():
 	slime.play("idle")
@@ -38,9 +45,33 @@ func _physics_process(delta):
 		slime.play("down")
 	
 	if not Input.is_action_pressed("left") and not Input.is_action_pressed("right") and not Input.is_action_pressed("up") and not Input.is_action_pressed("down"):
-		slime.play("idle")
+		if ishurt:
+			slime.play("hurt")
+		else:
+			slime.play("idle")
 	
-	motion += force
-	motion = motion.normalized() * speed
+	if ishurt:
+		hurttimer -= 1
+		if hurttimer == 0:
+			ishurt = false
+	
+	motion += (force.normalized() * speed) + (platform * platformspeed)
 
 	var collision = move_and_slide(motion)
+
+func transportplatform(force, pspeed, immune):
+	platform += force
+	platformspeed = pspeed
+	platform_immune += immune
+
+func fall():
+	if platform_immune <= 0:
+		position = reset
+		hurtsound.play(0)
+		if not ishurt:
+			global.lives -= 1
+		ishurt = true
+		hurttimer = 50
+	
+func set_spawn(pos):
+	reset = pos

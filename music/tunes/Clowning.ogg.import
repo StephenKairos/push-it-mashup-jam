@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Clowning.ogg-3e1c0c7a77b48be0bbc15a5c902a27d3.oggstr"
+
+[deps]
+
+source_file="res://music/tunes/Clowning.ogg"
+dest_files=[ "res://.import/Clowning.ogg-3e1c0c7a77b48be0bbc15a5c902a27d3.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

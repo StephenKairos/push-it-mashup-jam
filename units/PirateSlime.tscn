@@ -1,18 +1,20 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scripts/PirateSlime.gd" type="Script" id=1]
-[ext_resource path="res://sprites/slime/tiles/slimeright (2).png" type="Texture" id=2]
-[ext_resource path="res://sprites/slime/tiles/slimeright (3).png" type="Texture" id=3]
-[ext_resource path="res://sprites/slime/tiles/slimeright (1).png" type="Texture" id=4]
-[ext_resource path="res://sprites/slime/tiles/slimeleft (2).png" type="Texture" id=5]
-[ext_resource path="res://sprites/slime/tiles/slimeleft (3).png" type="Texture" id=6]
-[ext_resource path="res://sprites/slime/tiles/slimeleft (1).png" type="Texture" id=7]
+[ext_resource path="res://sprites/slime/tiles/slimeleft (2).png" type="Texture" id=2]
+[ext_resource path="res://sprites/slime/tiles/slimeleft (3).png" type="Texture" id=3]
+[ext_resource path="res://sprites/slime/tiles/slimeleft (1).png" type="Texture" id=4]
+[ext_resource path="res://sprites/slime/tiles/slimeright (2).png" type="Texture" id=5]
+[ext_resource path="res://sprites/slime/tiles/slimeright (3).png" type="Texture" id=6]
+[ext_resource path="res://sprites/slime/tiles/slimeright (1).png" type="Texture" id=7]
 [ext_resource path="res://sprites/slime/tiles/slimeup (2).png" type="Texture" id=8]
 [ext_resource path="res://sprites/slime/tiles/slimeup (3).png" type="Texture" id=9]
 [ext_resource path="res://sprites/slime/tiles/slimeup (1).png" type="Texture" id=10]
 [ext_resource path="res://sprites/slime/tiles/slimedown (2).png" type="Texture" id=11]
 [ext_resource path="res://sprites/slime/tiles/slimedown (3).png" type="Texture" id=12]
 [ext_resource path="res://sprites/slime/tiles/slimedown (1).png" type="Texture" id=13]
+[ext_resource path="res://sprites/slime/tiles/slimehurt.png" type="Texture" id=14]
+[ext_resource path="res://music/fx/Fall.ogg" type="AudioStream" id=15]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7, 7 )
@@ -21,12 +23,12 @@ extents = Vector2( 7, 7 )
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 8 ), ExtResource( 10 ) ],
@@ -43,6 +45,11 @@ animations = [ {
 "loop": true,
 "name": "down",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 11 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 14 ), ExtResource( 11 ) ],
+"loop": false,
+"name": "hurt",
+"speed": 12.0
 } ]
 
 [node name="PirateSlime" type="KinematicBody2D"]
@@ -54,5 +61,10 @@ shape = SubResource( 1 )
 [node name="Slime" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
 animation = "idle"
+frame = 1
 playing = true
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -10.0
 

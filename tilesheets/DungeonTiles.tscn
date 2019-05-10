@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sprites/tiles/dungeon/tiles/tile000.png" type="Texture" id=1]
 [ext_resource path="res://sprites/tiles/dungeon/tiles/tile001.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://sprites/tiles/dungeon/tiles/tile016.png" type="Texture" id=17]
 [ext_resource path="res://sprites/tiles/dungeon/tiles/tile017.png" type="Texture" id=18]
 [ext_resource path="res://sprites/tiles/dungeon/tiles/tile018.png" type="Texture" id=19]
+[ext_resource path="res://sprites/tiles/dungeon/tiles/pyramid.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 8 )
@@ -106,6 +107,10 @@ texture = ExtResource( 9 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite9/StaticBody2D9"]
 shape = SubResource( 1 )
 
+[node name="FakeWall2" type="Sprite" parent="."]
+position = Vector2( 56, 56 )
+texture = ExtResource( 9 )
+
 [node name="Sprite10" type="Sprite" parent="."]
 position = Vector2( 56, 24 )
 texture = ExtResource( 10 )
@@ -114,6 +119,10 @@ texture = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite10/StaticBody2D10"]
 shape = SubResource( 1 )
+
+[node name="FakeWall" type="Sprite" parent="."]
+position = Vector2( 40, 56 )
+texture = ExtResource( 10 )
 
 [node name="Sprite11" type="Sprite" parent="."]
 position = Vector2( 72, 24 )
@@ -165,4 +174,22 @@ texture = ExtResource( 18 )
 [node name="tile018" type="Sprite" parent="."]
 position = Vector2( 24, 40 )
 texture = ExtResource( 19 )
+
+[node name="pyramid" type="Sprite" parent="."]
+position = Vector2( 24, 56 )
+texture = ExtResource( 20 )
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="pyramid"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pyramid/StaticBody2D14"]
+shape = SubResource( 1 )
+
+[node name="fakefloor" type="Sprite" parent="."]
+position = Vector2( 72, 56 )
+texture = ExtResource( 18 )
+
+[node name="StaticBody2D14" type="StaticBody2D" parent="fakefloor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fakefloor/StaticBody2D14"]
+shape = SubResource( 1 )
 

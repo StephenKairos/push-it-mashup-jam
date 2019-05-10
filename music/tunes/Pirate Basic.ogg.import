@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Pirate Basic.ogg-161208eff2ddbcf96754dd93c2b5dd9e.oggstr"
+
+[deps]
+
+source_file="res://music/tunes/Pirate Basic.ogg"
+dest_files=[ "res://.import/Pirate Basic.ogg-161208eff2ddbcf96754dd93c2b5dd9e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
