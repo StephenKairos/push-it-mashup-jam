@@ -1,9 +1,5 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 var result = "null"
 var trigger = false
 var comptrigger = false
@@ -27,10 +23,17 @@ var MAX_TWO = 25
 var ones = 25
 var twos = 25
 
+var LEFT = true
+var UP = true
+
+var roundstarted = false
+var running = false
+
+var playercoinsnum = 0
+
 onready var global = get_node("/root/Global")
 
 onready var playercoins = get_node("PlayerCoins/CoinTotal")
-var playercoinsnum = 0
 
 onready var onestotal = get_node("OnesTotal")
 onready var twostotal = get_node("TwosTotal")
@@ -54,12 +57,6 @@ onready var hit = get_node("Hit")
 onready var stay = get_node("Stay") 
 onready var double = get_node("Double") 
 
-var LEFT = true
-var UP = true
-
-var roundstarted = false
-var running = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -69,6 +66,7 @@ func _ready():
 	comp.stop()
 	comp.frame = 0
 	music.play(0)
+	hardreset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -89,7 +87,10 @@ func _process(delta):
 	pTotalLabel.set_text(str(playertotal))
 	cTotalLabel.set_text(str(comptotal))
 	
-	if Input.is_action_just_released("left") and not running:
+	if Input.is_action_just_pressed("reset"):
+		hardreset()
+
+	if Input.is_action_just_pressed("left") and not running:
 		LEFT = true
 	if Input.is_action_just_pressed("right") and not running:
 		LEFT = false
@@ -289,3 +290,26 @@ func _on_AudioStreamPlayer2_finished():
 
 func _on_AudioStreamPlayer3_finished():
 	hurtsound.stop()
+
+func hardreset():
+	result = "null"
+	trigger = false
+	comptrigger = false
+	flip = 0
+	compflip = 0
+	p_result = 0
+	c_result = 0
+	playertotal = 0
+	comptotal = 0
+	pdone = false
+	cdone = false
+	bet = 1
+	MAX_ONE = 25
+	MAX_TWO = 25
+	ones = 25
+	twos = 25
+	LEFT = true
+	UP = true
+	roundstarted = false
+	running = false
+	playercoinsnum = 0

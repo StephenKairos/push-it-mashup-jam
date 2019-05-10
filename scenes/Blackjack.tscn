@@ -9,11 +9,11 @@
 [ext_resource path="res://sprites/coin/betting/tile000.png" type="Texture" id=7]
 [ext_resource path="res://sprites/coin/betting/tile001.png" type="Texture" id=8]
 [ext_resource path="res://sprites/coin/betting/tile002.png" type="Texture" id=9]
-[ext_resource path="res://sprites/coin/betting/tile001 (2).png" type="Texture" id=10]
-[ext_resource path="res://sprites/coin/betting/tile002 (2).png" type="Texture" id=11]
-[ext_resource path="res://sprites/coin/betting/tile004 (1).png" type="Texture" id=12]
-[ext_resource path="res://sprites/coin/betting/tile005 (1).png" type="Texture" id=13]
-[ext_resource path="res://sprites/coin/betting/tile006.png" type="Texture" id=14]
+[ext_resource path="res://sprites/coin/betting/tile004 (1).png" type="Texture" id=10]
+[ext_resource path="res://sprites/coin/betting/tile005 (1).png" type="Texture" id=11]
+[ext_resource path="res://sprites/coin/betting/tile006.png" type="Texture" id=12]
+[ext_resource path="res://sprites/coin/betting/tile001 (2).png" type="Texture" id=13]
+[ext_resource path="res://sprites/coin/betting/tile002 (2).png" type="Texture" id=14]
 [ext_resource path="res://sprites/coin/betting/tile004 (2).png" type="Texture" id=15]
 [ext_resource path="res://sprites/coin/betting/tile005 (2).png" type="Texture" id=16]
 [ext_resource path="res://sprites/coin/betting/tile007.png" type="Texture" id=17]
@@ -40,19 +40,19 @@ animations = [ {
 "name": "reset1",
 "speed": 8.0
 }, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "one",
+"speed": 8.0
+}, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "spinning",
 "speed": 8.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": false,
 "name": "reset2",
-"speed": 8.0
-}, {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": false,
-"name": "one",
 "speed": 8.0
 }, {
 "frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
@@ -130,7 +130,7 @@ position = Vector2( 160, 416 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "spinning"
-frame = 1
+frame = 2
 playing = true
 
 [node name="CoinComp" type="AnimatedSprite" parent="."]
@@ -138,22 +138,34 @@ position = Vector2( 480, 416 )
 scale = Vector2( 4, 4 )
 frames = SubResource( 1 )
 animation = "spinning"
+frame = 1
 playing = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 margin_left = 119.0
+margin_top = 16.0
 margin_right = 522.0
-margin_bottom = 32.0
+margin_bottom = 48.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Pieces of Eight BlackJack"
 
+[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+margin_left = 352.0
+margin_top = 64.0
+margin_right = 603.0
+margin_bottom = 139.0
+size_flags_horizontal = 3
+custom_fonts/mono_font = ExtResource( 18 )
+custom_fonts/normal_font = ExtResource( 18 )
+text = "Press 'ESC' to Hard Reset if needed"
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
-margin_left = 247.0
-margin_top = 30.0
-margin_right = 394.0
-margin_bottom = 57.0
+margin_left = 80.0
+margin_top = 80.0
+margin_right = 227.0
+margin_bottom = 112.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
@@ -170,9 +182,9 @@ custom_fonts/normal_font = ExtResource( 18 )
 text = "Player:"
 
 [node name="PTotalLabel" type="RichTextLabel" parent="."]
-margin_left = 208.0
+margin_left = 192.0
 margin_top = 240.0
-margin_right = 259.0
+margin_right = 243.0
 margin_bottom = 272.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
@@ -190,9 +202,9 @@ custom_fonts/normal_font = ExtResource( 18 )
 text = "Computer:"
 
 [node name="CTotalLabel" type="RichTextLabel" parent="."]
-margin_left = 560.0
+margin_left = 544.0
 margin_top = 240.0
-margin_right = 605.0
+margin_right = 589.0
 margin_bottom = 272.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
@@ -236,40 +248,40 @@ frames = SubResource( 5 )
 animation = "empty"
 
 [node name="OnesTotal" type="RichTextLabel" parent="."]
-margin_left = 560.0
-margin_top = 118.0
-margin_right = 614.0
-margin_bottom = 141.0
+margin_left = 546.0
+margin_top = 149.0
+margin_right = 600.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "0"
 
 [node name="OnesLabel" type="RichTextLabel" parent="."]
-margin_left = 382.0
-margin_top = 118.0
-margin_right = 542.0
-margin_bottom = 141.0
+margin_left = 368.0
+margin_top = 149.0
+margin_right = 528.0
+margin_bottom = 172.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "Ones Left:"
 
 [node name="TwosTotal" type="RichTextLabel" parent="."]
-margin_left = 560.0
-margin_top = 160.0
-margin_right = 614.0
-margin_bottom = 183.0
+margin_left = 546.0
+margin_top = 191.0
+margin_right = 600.0
+margin_bottom = 214.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
 text = "0"
 
 [node name="TwosLabel" type="RichTextLabel" parent="."]
-margin_left = 382.0
-margin_top = 160.0
-margin_right = 543.0
-margin_bottom = 183.0
+margin_left = 368.0
+margin_top = 191.0
+margin_right = 529.0
+margin_bottom = 214.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
@@ -278,20 +290,20 @@ text = "Twos Left:"
 [node name="PlayerCoins" type="Node2D" parent="."]
 
 [node name="x-note" type="Sprite" parent="PlayerCoins"]
-position = Vector2( 132, 151 )
+position = Vector2( 164, 166 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 31 )
 
 [node name="coins" type="Sprite" parent="PlayerCoins"]
-position = Vector2( 96, 150 )
+position = Vector2( 128, 165 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 32 )
 
 [node name="CoinTotal" type="RichTextLabel" parent="PlayerCoins"]
-margin_left = 146.0
-margin_top = 139.0
-margin_right = 200.0
-margin_bottom = 162.0
+margin_left = 178.0
+margin_top = 154.0
+margin_right = 232.0
+margin_bottom = 177.0
 size_flags_horizontal = 3
 custom_fonts/mono_font = ExtResource( 18 )
 custom_fonts/normal_font = ExtResource( 18 )
